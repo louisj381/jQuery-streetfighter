@@ -28,6 +28,22 @@ $(document).ready(function () {
             $('.hadouken').hide();
         });
 
+    $('body').keydown(function (event) {
+        if (event.which == 88) {    //88 == 'x'
+            $('.ryu-throwing').hide();
+            $('.ryu-ready').hide();
+            $('.ryu-still').hide();
+            $('.ryu-cool').show();
+        }
+        console.log("keypress", event.which);
+    })
+        .keyup(function (event) {
+            if (event.which == 88) {    //88 == 'x'
+                $('.ryu-cool').hide();
+                $('.ryu-still').show();
+            }
+        });
+
     function playHadouken() {
         $('#hadouken-sound')[0].volume = 0.5;
         $('#hadouken-sound')[0].load();
